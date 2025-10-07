@@ -95,23 +95,23 @@ export default function Gallery() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in-up"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in-up overflow-auto"
           onClick={closeLightbox}
         >
           <button 
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-primary-400 transition-colors z-50"
+            className="fixed top-4 right-4 text-white hover:text-primary-400 transition-colors z-50 bg-black/50 rounded-full p-2 hover:bg-black/70"
           >
-            <X className="w-10 h-10" />
+            <X className="w-8 h-8" />
           </button>
           
-          <div className="max-w-6xl max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full max-w-7xl mx-auto my-auto" onClick={(e) => e.stopPropagation()}>
             <img 
               src={selectedImage.src} 
               alt={selectedImage.title}
-              className="w-full h-full object-contain rounded-lg"
+              className="w-full h-auto max-h-[85vh] object-contain rounded-lg mx-auto"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
+            <div className="mt-4 bg-gradient-to-t from-black/80 to-black/40 p-6 rounded-lg">
               <h3 className="text-white text-2xl font-bold mb-2">{selectedImage.title}</h3>
               <p className="text-white/90 text-lg">{selectedImage.category}</p>
             </div>
