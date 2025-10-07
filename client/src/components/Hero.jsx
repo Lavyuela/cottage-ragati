@@ -16,72 +16,84 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="relative pt-20 bg-gradient-to-br from-primary-50 via-white to-primary-50">
-      <div className="container mx-auto px-4 py-20 md:py-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section id="home" className="relative pt-20 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-blue-50 -z-10">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-24 md:py-32">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full">
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-100 to-blue-100 text-primary-700 px-5 py-2.5 rounded-full shadow-md">
               <Award className="w-5 h-5" />
-              <span className="font-semibold">Premium Accommodation</span>
+              <span className="font-semibold text-sm">Premium Luxury Accommodation</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Welcome to <span className="text-primary-600">Cottage Ragati</span>
+            <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+              Welcome to <br/>
+              <span className="bg-gradient-to-r from-primary-600 via-primary-700 to-blue-600 bg-clip-text text-transparent">
+                Cottage Ragati
+              </span>
             </h1>
             
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Experience luxury and tranquility in the heart of Nanyuki. Your perfect getaway awaits at our beautiful cottage with stunning views of Mount Kenya.
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light">
+              Experience luxury and tranquility in the heart of Nanyuki. Your perfect getaway awaits with stunning views of Mount Kenya.
             </p>
 
-            <div className="flex items-center space-x-2 text-gray-700">
-              <MapPin className="w-5 h-5 text-primary-600" />
-              <span className="text-lg">Nanyuki, Kenya</span>
+            <div className="flex items-center space-x-3 text-gray-700 bg-white/60 backdrop-blur-sm px-4 py-3 rounded-xl w-fit shadow-sm">
+              <MapPin className="w-6 h-6 text-primary-600" />
+              <span className="text-lg font-medium">Nanyuki, Kenya</span>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 bg-white/60 backdrop-blur-sm px-4 py-3 rounded-xl w-fit shadow-sm">
               <div className="flex items-center space-x-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400 drop-shadow-sm" />
                 ))}
               </div>
-              <span className="text-gray-600 font-medium">5.0 Rating on Airbnb & Booking.com</span>
+              <span className="text-gray-700 font-semibold">5.0 Rating</span>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <button onClick={scrollToBooking} className="btn-primary">
-                Book Your Stay
+            <div className="flex flex-wrap gap-4 pt-6">
+              <button onClick={scrollToBooking} className="btn-primary group">
+                <span>Book Your Stay</span>
+                <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
               </button>
-              <button onClick={scrollToAvailability} className="btn-secondary">
-                Check Availability
+              <button onClick={scrollToAvailability} className="btn-secondary group">
+                <span>Check Availability</span>
+                <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
               </button>
             </div>
           </div>
 
           {/* Right Content - Image Placeholder */}
-          <div className="relative">
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary-200 to-primary-400 shadow-2xl overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-white">
+          <div className="relative animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary-400 via-primary-500 to-blue-500 shadow-2xl overflow-hidden relative group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="w-full h-full flex items-center justify-center text-white relative z-10">
                 <div className="text-center p-8">
-                  <Home className="w-24 h-24 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-semibold">Add your cottage photos here</p>
-                  <p className="text-sm mt-2 opacity-80">Replace this placeholder with actual images</p>
+                  <Home className="w-28 h-28 mx-auto mb-6 opacity-60 group-hover:scale-110 transition-transform duration-300" />
+                  <p className="text-xl font-semibold mb-2">Your Cottage Photos Here</p>
+                  <p className="text-sm opacity-90">Replace with stunning property images</p>
                 </div>
               </div>
             </div>
             
-            {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+            {/* Floating Stats with Glass Effect */}
+            <div className="absolute -bottom-8 -left-8 glass-effect rounded-2xl p-6 card-hover">
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary-600">100+</p>
-                <p className="text-sm text-gray-600">Happy Guests</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">100+</p>
+                <p className="text-sm text-gray-700 font-medium mt-1">Happy Guests</p>
               </div>
             </div>
             
-            <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+            <div className="absolute -top-8 -right-8 glass-effect rounded-2xl p-6 card-hover">
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary-600">4.9★</p>
-                <p className="text-sm text-gray-600">Average Rating</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">4.9★</p>
+                <p className="text-sm text-gray-700 font-medium mt-1">Average Rating</p>
               </div>
             </div>
           </div>
