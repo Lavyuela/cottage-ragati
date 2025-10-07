@@ -7,12 +7,13 @@ export default function Gallery() {
   const images = [
     { id: 1, title: 'Cottage Exterior - Day View', category: 'Exterior', src: '/images/cottage-exterior.jpg', hasImage: true },
     { id: 2, title: 'Cottage Exterior - Night View', category: 'Exterior', src: '/images/cottage-exterior-night.jpg.avif', hasImage: true },
-    { id: 3, title: 'Living Room', category: 'Interior', hasImage: false },
-    { id: 4, title: 'Master Bedroom', category: 'Interior', hasImage: false },
-    { id: 5, title: 'Kitchen', category: 'Interior', hasImage: false },
-    { id: 6, title: 'Bathroom', category: 'Interior', hasImage: false },
-    { id: 7, title: 'Dining Area', category: 'Interior', hasImage: false },
-    { id: 8, title: 'Garden View', category: 'Views', hasImage: false }
+    { id: 3, title: 'Living Room', category: 'Interior', src: '/images/Living Room Interior.jpg', hasImage: true },
+    { id: 4, title: 'Master Bedroom', category: 'Interior', src: '/images/Master Bedroom Interior.jpg', hasImage: true },
+    { id: 5, title: 'Kitchen', category: 'Interior', src: '/images/Kitchen Interior.jpg', hasImage: true },
+    { id: 6, title: 'Bathroom', category: 'Interior', src: '/images/Bathroom Interior.jpg', hasImage: true },
+    { id: 7, title: 'Dining Area', category: 'Interior', src: '/images/Dining Area Interior.jpg', hasImage: true },
+    { id: 8, title: 'Garden View', category: 'Exterior', src: '/images/Garden Exterior.jpg', hasImage: true },
+    { id: 9, title: 'Exterior View', category: 'Exterior', src: '/images/Exterior View.jpg', hasImage: true }
   ]
 
   const openLightbox = (image) => {
