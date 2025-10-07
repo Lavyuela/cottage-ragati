@@ -22,7 +22,7 @@
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-primary-800 to-gray-900 bg-clip-text text-transparent mb-6;
+    @apply text-4xl md:text-5xl font-bold text-gray-900 mb-6;
   }
   
   .section-subtitle {
