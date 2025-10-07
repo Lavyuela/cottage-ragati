@@ -83,17 +83,25 @@ export default function Hero() {
             </div>
             
             {/* Floating Stats with Glass Effect */}
-            <div className="absolute -bottom-8 -left-8 glass-effect rounded-2xl p-6 card-hover">
+            <div 
+              onClick={scrollToBooking}
+              className="absolute -bottom-8 -left-8 glass-effect rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 hover:scale-110 active:scale-105 group"
+            >
               <div className="text-center">
-                <p className="text-4xl font-bold bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">100+</p>
-                <p className="text-sm text-gray-700 font-medium mt-1">Happy Guests</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">100+</p>
+                <p className="text-sm text-gray-700 font-semibold mt-1 group-hover:text-primary-700 transition-colors">Happy Guests</p>
+                <p className="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity font-medium">Click to book →</p>
               </div>
             </div>
             
-            <div className="absolute -top-8 -right-8 glass-effect rounded-2xl p-6 card-hover">
+            <div 
+              onClick={scrollToAvailability}
+              className="absolute -top-8 -right-8 glass-effect rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 hover:scale-110 active:scale-105 group"
+            >
               <div className="text-center">
-                <p className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">4.9★</p>
-                <p className="text-sm text-gray-700 font-medium mt-1">Average Rating</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform">4.9★</p>
+                <p className="text-sm text-gray-700 font-semibold mt-1 group-hover:text-primary-700 transition-colors">Average Rating</p>
+                <p className="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity font-medium">View reviews →</p>
               </div>
             </div>
           </div>
