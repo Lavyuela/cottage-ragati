@@ -61,13 +61,13 @@ export default function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 shadow-xl overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-primary-700">
-                <div className="text-center p-8">
-                  <Mountain className="w-20 h-20 mx-auto mb-4 opacity-50" />
-                  <p className="font-semibold">Interior/Exterior Photo</p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-2xl shadow-xl overflow-hidden group">
+              <img 
+                src="/images/Living Room Interior.jpg" 
+                alt="Cottage Ragati - Cozy living room interior" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
           </div>
         </div>
