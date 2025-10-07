@@ -6,7 +6,7 @@ export default function Gallery() {
 
   const images = [
     { id: 1, title: 'Cottage Exterior - Day View', category: 'Exterior', src: '/images/cottage-exterior.jpg', hasImage: true },
-    { id: 2, title: 'Cottage Exterior - Night View', category: 'Exterior', src: '/images/cottage-exterior-night.jpg', hasImage: true },
+    { id: 2, title: 'Cottage Exterior - Night View', category: 'Exterior', src: '/images/cottage-exterior-night.jpg.avif', hasImage: true },
     { id: 3, title: 'Living Room', category: 'Interior', hasImage: false },
     { id: 4, title: 'Master Bedroom', category: 'Interior', hasImage: false },
     { id: 5, title: 'Kitchen', category: 'Interior', hasImage: false },
