@@ -74,9 +74,13 @@ export default function Hero() {
             <div className="aspect-square rounded-3xl shadow-2xl overflow-hidden relative group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
               <img 
-                src="/images/cottage-exterior.jpg" 
+                src="/images/Garden Exterior.jpg" 
                 alt="Cottage Ragati - Beautiful exterior view with lush green lawn" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/images/Exterior View.jpg';
+                }}
               />
             </div>
             
