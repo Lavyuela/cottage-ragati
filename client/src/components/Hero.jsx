@@ -69,17 +69,15 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Image Placeholder */}
+          {/* Right Content - Cottage Image */}
           <div className="relative animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary-400 via-primary-500 to-blue-500 shadow-2xl overflow-hidden relative group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <div className="w-full h-full flex items-center justify-center text-white relative z-10">
-                <div className="text-center p-8">
-                  <Home className="w-28 h-28 mx-auto mb-6 opacity-60 group-hover:scale-110 transition-transform duration-300" />
-                  <p className="text-xl font-semibold mb-2">Your Cottage Photos Here</p>
-                  <p className="text-sm opacity-90">Replace with stunning property images</p>
-                </div>
-              </div>
+            <div className="aspect-square rounded-3xl shadow-2xl overflow-hidden relative group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
+              <img 
+                src="/images/cottage-exterior.jpg" 
+                alt="Cottage Ragati - Beautiful exterior view with lush green lawn" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
             </div>
             
             {/* Floating Stats with Glass Effect */}
