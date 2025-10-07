@@ -1,0 +1,166 @@
+================================================================================
+                    COTTAGE RAGATI - QUICK DEPLOYMENT REFERENCE
+================================================================================
+
+Your Email: ivy.waliaula@gmail.com
+Accounts: ✓ GitHub  ✓ Vercel  ✓ Render
+
+================================================================================
+STEP 0: INSTALL GIT (REQUIRED FIRST!)
+================================================================================
+
+Download: https://git-scm.com/download/win
+Install with default settings, then restart PowerShell
+
+================================================================================
+STEP 1: PUSH TO GITHUB
+================================================================================
+
+1. Create repo: https://github.com/new
+   - Name: cottage-ragati
+   - Visibility: PUBLIC
+   - Don't add README
+
+2. Run these commands in PowerShell:
+
+cd "c:/Users/Admin/Downloads/Cottage Ragati"
+git init
+git config user.email "ivy.waliaula@gmail.com"
+git config user.name "Ivy Waliaula"
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/cottage-ragati.git
+git push -u origin main
+
+3. Get Personal Access Token for authentication:
+   https://github.com/settings/tokens
+   (Use token as password when pushing)
+
+================================================================================
+STEP 2: DEPLOY BACKEND TO RENDER
+================================================================================
+
+1. Go to: https://render.com/dashboard
+
+2. New + → Web Service → Connect GitHub → Select cottage-ragati
+
+3. Settings:
+   Name: cottage-ragati-api
+   Root Directory: server
+   Build: npm install
+   Start: node server.js
+   Plan: Free
+
+4. Environment Variables:
+   PORT = 5000
+   AIRBNB_ICAL_URL = (your Airbnb calendar URL)
+   BOOKING_ICAL_URL = (your Booking.com calendar URL)
+
+5. Create Web Service → Wait 5 minutes
+
+6. COPY YOUR BACKEND URL: https://cottage-ragati-api.onrender.com
+
+7. Test: https://cottage-ragati-api.onrender.com/api/health
+
+================================================================================
+STEP 3: DEPLOY FRONTEND TO VERCEL
+================================================================================
+
+1. Go to: https://vercel.com/new
+
+2. Import Git Repository → cottage-ragati
+
+3. Settings:
+   Root Directory: client
+   Framework: Vite
+   Build: npm run build
+   Output: dist
+
+4. Environment Variable:
+   VITE_API_URL = https://cottage-ragati-api.onrender.com
+   (Your Render URL from Step 2)
+
+5. Deploy → Wait 3 minutes
+
+6. YOUR WEBSITE: https://cottage-ragati.vercel.app
+
+================================================================================
+STEP 4: TEST
+================================================================================
+
+Visit: https://cottage-ragati.vercel.app
+
+Check:
+☐ Homepage loads
+☐ All sections display
+☐ Availability calendar works
+☐ No console errors (F12)
+☐ Mobile responsive
+
+================================================================================
+AFTER DEPLOYMENT - UPDATE THESE:
+================================================================================
+
+1. Add real cottage photos
+2. Update contact info (phone, email)
+3. Add real Airbnb & Booking.com URLs
+4. Update calendar iCal URLs in Render
+
+To update after changes:
+git add .
+git commit -m "Update content"
+git push
+
+(Vercel and Render auto-redeploy!)
+
+================================================================================
+CALENDAR URLs - HOW TO GET:
+================================================================================
+
+AIRBNB:
+Listing → Calendar → Availability settings → Export calendar → Copy URL
+
+BOOKING.COM:
+Extranet → Calendar → Import/Export → Export calendar → Copy URL
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+Git not found?
+→ Install from: https://git-scm.com/download/win
+
+Can't push to GitHub?
+→ Use Personal Access Token: https://github.com/settings/tokens
+
+Backend not working?
+→ Check Render logs and environment variables
+
+Frontend blank?
+→ Check browser console (F12) and verify VITE_API_URL
+
+================================================================================
+COST: $0/MONTH (100% FREE!)
+================================================================================
+
+Vercel: Free forever
+Render: Free tier (750 hours/month = 24/7)
+
+Optional: Custom domain (~$10-15/year)
+
+================================================================================
+YOUR LIVE URLS:
+================================================================================
+
+Website: https://cottage-ragati.vercel.app
+API: https://cottage-ragati-api.onrender.com
+
+================================================================================
+NEED HELP?
+================================================================================
+
+See: MANUAL_DEPLOYMENT_STEPS.md (detailed guide)
+See: DEPLOY_NOW.md (step-by-step with explanations)
+
+================================================================================
