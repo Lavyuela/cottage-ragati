@@ -1,6 +1,9 @@
-import { Image } from 'lucide-react'
+import { Image, X, ZoomIn } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState(null)
+
   const images = [
     { id: 1, title: 'Cottage Exterior - Day View', category: 'Exterior', src: '/images/cottage-exterior.jpg', hasImage: true },
     { id: 2, title: 'Cottage Exterior - Night View', category: 'Exterior', src: '/images/cottage-exterior-night.jpg', hasImage: true },
@@ -11,6 +14,16 @@ export default function Gallery() {
     { id: 7, title: 'Dining Area', category: 'Interior', hasImage: false },
     { id: 8, title: 'Garden View', category: 'Views', hasImage: false }
   ]
+
+  const openLightbox = (image) => {
+    if (image.hasImage) {
+      setSelectedImage(image)
+    }
+  }
+
+  const closeLightbox = () => {
+    setSelectedImage(null)
+  }
 
   return (
     <section id="gallery" className="py-20 bg-white">
@@ -26,6 +39,7 @@ export default function Gallery() {
           {images.map((image, index) => (
             <div 
               key={image.id}
+              onClick={() => openLightbox(image)}
               className={`relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer card-hover ${
                 index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''
               }`}
@@ -57,7 +71,14 @@ export default function Gallery() {
               
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <p className="text-white font-semibold text-lg">{image.hasImage ? 'View Full Size' : 'Coming Soon'}</p>
+                {image.hasImage ? (
+                  <div className="text-center">
+                    <ZoomIn className="w-12 h-12 text-white mx-auto mb-2" />
+                    <p className="text-white font-semibold text-lg">Click to View</p>
+                  </div>
+                ) : (
+                  <p className="text-white font-semibold text-lg">Coming Soon</p>
+                )}
               </div>
             </div>
           ))}
@@ -70,6 +91,33 @@ export default function Gallery() {
           </p>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in-up"
+          onClick={closeLightbox}
+        >
+          <button 
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-primary-400 transition-colors z-50"
+          >
+            <X className="w-10 h-10" />
+          </button>
+          
+          <div className="max-w-6xl max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.title}
+              className="w-full h-full object-contain rounded-lg"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
+              <h3 className="text-white text-2xl font-bold mb-2">{selectedImage.title}</h3>
+              <p className="text-white/90 text-lg">{selectedImage.category}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
