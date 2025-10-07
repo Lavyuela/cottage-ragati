@@ -5,14 +5,14 @@ export default function Booking() {
     {
       name: 'Airbnb',
       description: 'Book directly through Airbnb with instant confirmation',
-      url: 'https://www.airbnb.com', // Replace with actual listing URL
+      url: 'https://www.airbnb.com/rooms/cottage-ragati-nanyuki', // UPDATE: Replace with actual Airbnb listing URL
       color: 'from-pink-500 to-red-500',
       icon: '🏠'
     },
     {
       name: 'Booking.com',
       description: 'Reserve on Booking.com with flexible cancellation',
-      url: 'https://www.booking.com', // Replace with actual listing URL
+      url: 'https://www.booking.com/hotel/ke/cottage-ragati-nanyuki.html', // UPDATE: Replace with actual Booking.com listing URL
       color: 'from-blue-500 to-blue-600',
       icon: '🌐'
     }

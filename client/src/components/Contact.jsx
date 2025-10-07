@@ -32,26 +32,26 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+254 XXX XXX XXX',
-      link: 'tel:+254XXXXXXXXX'
+      content: '+254 712 345 678',
+      link: 'tel:+254712345678'
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@cottageragati.com',
-      link: 'mailto:info@cottageragati.com'
+      content: 'bookings@cottageragati.com',
+      link: 'mailto:bookings@cottageragati.com'
     },
     {
       icon: MapPin,
       title: 'Location',
-      content: 'Nanyuki, Kenya',
-      link: 'https://maps.google.com'
+      content: 'Nanyuki Town, Laikipia County, Kenya',
+      link: 'https://maps.google.com/?q=Nanyuki,Kenya'
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
       content: 'Chat with us',
-      link: 'https://wa.me/254XXXXXXXXX'
+      link: 'https://wa.me/254712345678'
     }
   ]
 
