@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 // CORS configuration for production
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*',
+  origin: ['https://cottage-ragati.vercel.app', 'http://localhost:3001', process.env.FRONTEND_URL].filter(Boolean),
   credentials: true,
   optionsSuccessStatus: 200
 };
