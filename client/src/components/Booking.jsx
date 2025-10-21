@@ -398,7 +398,7 @@ export default function Booking() {
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ExternalLink className="w-8 h-8 text-primary-600" />
+                  <CheckCircle className="w-8 h-8 text-primary-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Instant Confirmation</h4>
                 <p className="text-sm text-gray-600">
