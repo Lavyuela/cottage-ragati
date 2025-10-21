@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Calendar, RefreshCw, CheckCircle, XCircle, Clock } from 'lucide-react'
 import { format, parseISO, isWithinInterval, startOfDay, endOfDay } from 'date-fns'
+import CalendarView from './CalendarView'
 
 export default function Availability({ bookedDates, lastUpdated, loading }) {
   const [selectedDate, setSelectedDate] = useState(null)
@@ -56,6 +57,18 @@ export default function Availability({ bookedDates, lastUpdated, loading }) {
           <p className="section-subtitle">
             Check live availability synced with Airbnb and Booking.com
           </p>
+        </div>
+
+        {/* Calendar View */}
+        <div className="max-w-4xl mx-auto mb-12">
+          {loading ? (
+            <div className="flex items-center justify-center py-12 bg-white rounded-2xl shadow-xl">
+              <RefreshCw className="w-8 h-8 text-primary-600 animate-spin" />
+              <span className="ml-3 text-gray-600">Loading calendar...</span>
+            </div>
+          ) : (
+            <CalendarView bookedDates={bookedDates} />
+          )}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
