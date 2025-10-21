@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Home } from 'lucide-react'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,22 +15,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
-    }
-  }
-
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Features', id: 'features' },
-    { label: 'Gallery', id: 'gallery' },
-    { label: 'Availability', id: 'availability' },
-    { label: 'Book Now', id: 'booking' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Features', path: '/features' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Availability', path: '/availability' },
+    { label: 'Book Now', path: '/book-now' },
+    { label: 'Contact', path: '/contact' }
   ]
 
   return (
@@ -40,27 +34,28 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div 
-            className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => scrollToSection('home')}
-          >
+          <Link to="/" className="flex items-center space-x-2">
             <Home className="w-8 h-8 text-primary-600" />
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Cottage Ragati</h1>
               <p className="text-xs text-gray-600">Nanyuki, Kenya</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`font-medium transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? 'text-primary-600'
+                    : 'text-gray-700 hover:text-primary-600'
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -77,13 +72,18 @@ export default function Header() {
         {isMobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-gray-200">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-colors duration-200"
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block w-full text-left px-4 py-3 font-medium transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? 'bg-primary-50 text-primary-600'
+                    : 'text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
         )}
