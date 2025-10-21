@@ -39,9 +39,14 @@ function parseICalData(icalData) {
         const start = new Date(event.start);
         const end = new Date(event.end);
         
+        // Subtract 1 day from end date because checkout day is available
+        // Guest checks out on end date, so that day should be bookable
+        const adjustedEnd = new Date(end);
+        adjustedEnd.setDate(adjustedEnd.getDate() - 1);
+        
         bookedDates.push({
           start: start.toISOString(),
-          end: end.toISOString(),
+          end: adjustedEnd.toISOString(),
           summary: event.summary || 'Booked',
           source: event.description || 'Unknown'
         });
