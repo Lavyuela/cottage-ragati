@@ -1,19 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import { MapPin, Star, Award, Home } from 'lucide-react'
 
 export default function Hero() {
-  const scrollToBooking = () => {
-    const element = document.getElementById('booking')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const scrollToAvailability = () => {
-    const element = document.getElementById('availability')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const navigate = useNavigate()
 
   return (
     <section id="home" className="relative pt-20 overflow-hidden">
@@ -58,11 +47,11 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-6">
-              <button onClick={scrollToBooking} className="btn-primary group">
+              <button onClick={() => navigate('/book-now')} className="btn-primary group">
                 <span>Book Your Stay</span>
                 <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
               </button>
-              <button onClick={scrollToAvailability} className="btn-secondary group">
+              <button onClick={() => navigate('/availability')} className="btn-secondary group">
                 <span>Check Availability</span>
                 <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
               </button>
@@ -86,7 +75,7 @@ export default function Hero() {
             
             {/* Floating Stats with Glass Effect */}
             <div 
-              onClick={scrollToBooking}
+              onClick={() => navigate('/book-now')}
               className="absolute -bottom-8 -left-8 glass-effect rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 hover:scale-110 active:scale-105 group"
             >
               <div className="text-center">
@@ -97,13 +86,13 @@ export default function Hero() {
             </div>
             
             <div 
-              onClick={scrollToAvailability}
+              onClick={() => navigate('/gallery')}
               className="absolute -top-8 -right-8 glass-effect rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 hover:scale-110 active:scale-105 group"
             >
               <div className="text-center">
                 <p className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform">4.9★</p>
                 <p className="text-sm text-gray-700 font-semibold mt-1 group-hover:text-primary-700 transition-colors">Average Rating</p>
-                <p className="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity font-medium">View reviews →</p>
+                <p className="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity font-medium">View gallery →</p>
               </div>
             </div>
           </div>
