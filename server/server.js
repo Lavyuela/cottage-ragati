@@ -96,6 +96,18 @@ async function syncCalendars() {
 }
 
 // API Routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Cottage Ragati API',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      availability: '/api/availability',
+      checkDate: '/api/check-date'
+    }
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 
